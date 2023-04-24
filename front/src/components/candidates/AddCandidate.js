@@ -38,6 +38,18 @@ class AddCandidate extends React.Component {
   }
 
   async create() {
+    if(!this.state.candidate.fullName.match("^[A-Z][a-z]+( [A-Z][a-z]+)+")){
+      alert("Full name is not valid")
+      return;
+    }
+    if(!this.state.candidate.eMail.match("^[^\\s]+@[a-z]+(\\.[a-z]+)+$")){
+      alert("Email is not in right format")
+      return;
+    }
+    if(!this.state.candidate.dateOfBirth.match("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")){
+      alert("Date of birth must be in format yyyy-mm-dd")
+      return;
+    }
   
    await  InteNSAxios.post("/candidates", this.state.candidate)
       .then((res) => {

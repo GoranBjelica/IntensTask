@@ -6,12 +6,11 @@ import intens.finalTest.model.Skill;
 
 public interface CandidateService {
     
-
+	Candidate save(Candidate candidate);
+	
     Candidate findById(Long id);
 
 //    List<Candidate> findAll();
-
-    Candidate save(Candidate candidate);
 
     Candidate update(Long id, Skill skill);
 

@@ -18,11 +18,8 @@ public class JPACandidateService implements CandidateService {
 
 	@Override
 	public Candidate findById(Long id) {
-		Optional<Candidate> candidate = candidateRepository.findById(id);
-		if(candidate.isPresent()){
-			return candidate.get();
-		}
-		return null;
+		Candidate candidate = candidateRepository.findOneById(id);
+		return candidate;
 	}
 
 	@Override
@@ -33,7 +30,6 @@ public class JPACandidateService implements CandidateService {
 
 	@Override
 	public Candidate save(Candidate candidate) {
-		System.out.println(candidate);
 		return candidateRepository.save(candidate);
 	}
 

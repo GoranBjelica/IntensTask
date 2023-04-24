@@ -22,7 +22,6 @@ import intens.finalTest.web.dto.CandidateDTO;
 import intens.finalTest.web.dto.SkillDTO;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -82,7 +81,7 @@ public class SkillController {
     }
     
     @PostMapping (consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<SkillDTO> add(@RequestBody SkillDTO skillDTO){
+    public ResponseEntity<SkillDTO> add(@Valid @RequestBody SkillDTO skillDTO){
     	
     	Skill skill = toSkill.convert(skillDTO);
     	Skill savedTask = skillService.save(skill);

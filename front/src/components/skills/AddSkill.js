@@ -21,7 +21,7 @@ class AddSkill extends React.Component{
         this.setState({title : input}) 
     }
      create(){
-      
+              
         InteNSAxios.post("/skills", this.state)
         .then((res) => {
             alert("Skill added successfully")

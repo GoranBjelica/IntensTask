@@ -45,7 +45,6 @@ public class CandidateController {
     @GetMapping
     public ResponseEntity<List<CandidateDTO>> getByName(
     		@RequestParam(required = false) String fullName){
-System.out.println(fullName);
     	List<Candidate> candidates = candidateService.findByName(fullName);
     	return new ResponseEntity<>(toDto.convertAll(candidates), HttpStatus.OK);
     }
@@ -71,9 +70,7 @@ System.out.println(fullName);
 
     @PutMapping(value = "/updateskill/{id}")
     public ResponseEntity<CandidateDTO> update (@PathVariable Long id, @RequestBody SkillDTO skillDTO){
-    	System.out.println(id);
-    	System.out.println(skillDTO);
-    	
+    	    	
     	if(candidateService.findById(id) == null) {
     		return new ResponseEntity<> (HttpStatus.BAD_REQUEST);
     	}
